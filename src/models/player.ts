@@ -34,4 +34,21 @@ export class Player {
 
         return `${this.name} recebeu ${amount} de dano e agora tem ${this.health} de saude!`;
     }
+
+    public takeHealth(amount: number): string {
+        this.health += amount; // aumenta a saúde do jogador pelo valor do parâmetro
+        if (this.health > 100) {
+            this.health = 100; // garante que a saúde não ultrapasse 100
+        }
+        return `${this.name} recebeu ${amount} de cura e agora tem ${this.health} de saúde!`;
+    }
+
+    public upLevel(): string {
+        this.level += 1; // aumenta o nível do jogador em 1
+        if (this.level > 100) {
+            this.level = 100; // garante que o nível não ultrapasse 100
+        }
+        return `${this.name} subiu para o nível ${this.level}!`; // retorna uma mensagem de nível
+        return `o máximo nivel do jogador é 100, ${this.name} já está no nível máximo!`; // retorna uma mensagem de nível máximo
+    }
 }
